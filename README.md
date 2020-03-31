@@ -1,2 +1,7 @@
 # bv2av
-Bilibili BV号转AV号 AV号转BV号
+
+Bilibili BV号转AV号 AV号转BV号 Lua版本
+
+算法来源：https://www.zhihu.com/question/381784377/answer/1099438784
+
+[点我在线测试](https://lua.papapoi.com/?--from%20python%20code%3A%20https%3A//www.zhihu.com/question/381784377/answer/1099438784%0Alocal%20it%20%3D%20%22fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF%22%0Alocal%20tr%20%3D%20%7B%7D%0Afor%20i%3D0%2C%23it-1%20do%0A%20%20%20%20tr%5Bit%3Asub%28i+1%2Ci+1%29%5D%20%3D%20i%0Aend%0Alocal%20s%20%3D%20%7B12%2C%2011%2C%204%2C%209%2C%205%2C%207%2C%203%2C%2010%2C%206%2C%208%7D%0Alocal%20xor%20%3D%20177451812%0Alocal%20add%20%3D%208728348608%0A%0Alocal%20function%20dec%28x%29%0A%20%20%20%20local%20r%20%3D%200%0A%20%20%20%20for%20i%3D1%2C6%20do%0A%20%20%20%20%20%20%20%20r%20%3D%20r%20+%20tr%5Bx%3Asub%28s%5Bi%5D%2Cs%5Bi%5D%29%5D%20*%2058%20%5E%20%28i%20-%201%29%0A%20%20%20%20end%0A%20%20%20%20return%20%22av%22..%28%28r%20-%20add%29%20%7E%20xor%29%0Aend%0A%0Alocal%20function%20enc%28x%29%0A%20%20%20%20local%20xt%20%3D%20%28x%20%7E%20xor%29%20+%20add%0A%20%20%20%20local%20r%20%3D%20%7B%22B%22%2C%20%22V%22%2C%20%221%22%2C%20nil%2C%20nil%2C%20%224%22%2C%20nil%2C%20%221%22%2C%20nil%2C%20%227%22%7D%0A%20%20%20%20for%20i%3D1%2C6%20do%0A%20%20%20%20%20%20%20%20local%20lt%20%3D%20math.floor%28xt/58%5E%28i-1%29%29%2558%0A%20%20%20%20%20%20%20%20r%5Bs%5Bi%5D%5D%20%3D%20it%3Asub%28lt+1%2Clt+1%29%0A%20%20%20%20end%0A%20%20%20%20return%20table.concat%28r%29%0Aend%0A%0Aprint%28dec%28%27BV17x411w7KC%27%29%29%0Aprint%28dec%28%27BV1Q541167Qg%27%29%29%0Aprint%28dec%28%27BV1mK4y1C7Bz%27%29%29%0Aprint%28enc%28170001%29%29%0Aprint%28enc%28455017605%29%29%0Aprint%28enc%28882584971%29%29%0A%0d%0a)
